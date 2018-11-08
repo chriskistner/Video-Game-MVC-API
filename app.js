@@ -8,7 +8,8 @@ app.disable('x-powered-by');
 app.use(bodyParser.json());
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
-
+const gameRoutes = require('./src/routes/games');
+app.use('/games', gameRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err)
